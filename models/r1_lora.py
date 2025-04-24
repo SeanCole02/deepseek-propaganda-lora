@@ -12,7 +12,7 @@ class LlamaClassifier:
         # Set fixed seed for reproducible training
         self._set_seeds()
 
-        self._model_id = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+        self._model_id = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
         self._label_list = []
         self._id2label = self._label2id = {}
 
