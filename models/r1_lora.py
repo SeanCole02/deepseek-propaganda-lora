@@ -2,6 +2,7 @@ import evaluate
 import numpy as np
 import pandas as pd
 
+from torch import bfloat16
 from datasets import Dataset
 from transformers import AutoTokenizer, TrainingArguments, Trainer, set_seed, AutoModelForSequenceClassification
 from peft import get_peft_model, LoraConfig, TaskType
@@ -31,7 +32,8 @@ class LlamaClassifier:
             self._model_id,
             num_labels=len(self._label2id),
             id2label=self._id2label,
-            label2id=self._label2id
+            label2id=self._label2id,
+            torch_dtype=bfloat16
         )
 
         # Configuring LoRA
