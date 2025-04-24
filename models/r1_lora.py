@@ -159,3 +159,5 @@ if __name__ == "__main__":
     )
     results = classifier.train_model()
     print(f"Training completed with results: {results}")
+    with open("training_results.txt", "w") as f:
+        f.write(str(results))

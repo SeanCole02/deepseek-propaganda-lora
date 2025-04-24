@@ -1,0 +1,1 @@
+nohup python r1_lora.py > output.log 2>&1 &
