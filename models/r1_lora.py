@@ -9,7 +9,7 @@ from peft import get_peft_model, LoraConfig, TaskType
 
 class LlamaClassifier:
     def __init__(self, lr=None, train_batch=None, eval_batch=None, weight_decay=None, 
-                 lora_r=8, lora_alpha=16, lora_dropout=0.1):
+                 lora_r=16, lora_alpha=16, lora_dropout=0.1):
         # Set fixed seed for reproducible training
         self._set_seeds()
 
@@ -153,7 +153,7 @@ if __name__ == "__main__":
         lr=7e-5,  # Higher learning rate often works better with LoRA
         train_batch=1,
         eval_batch=1,
-        lora_r=8,  # Rank of LoRA decomposition
+        lora_r=16,  # Rank of LoRA decomposition
         lora_alpha=16,  # Alpha scaling factor, keep at 16
         lora_dropout=0.1
     )
