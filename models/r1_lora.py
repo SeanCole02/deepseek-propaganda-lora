@@ -107,7 +107,7 @@ class LlamaClassifier:
             metric_for_best_model="f1",
             save_total_limit=2,
             #gradient_checkpointing=True, # Reduce VRAM
-            gradient_accumulation_steps=4, # 4x train batch size
+            gradient_accumulation_steps=8, # 4x train batch size
             bf16=True
         )
         
@@ -150,9 +150,9 @@ class LlamaClassifier:
 
 if __name__ == "__main__":
     classifier = LlamaClassifier(
-        lr=5e-5,  # Higher learning rate often works better with LoRA
-        train_batch=2,
-        eval_batch=2,
+        lr=7e-5,  # Higher learning rate often works better with LoRA
+        train_batch=1,
+        eval_batch=1,
         lora_r=4,  # Rank of LoRA decomposition
         lora_alpha=16,  # Alpha scaling factor, keep at 16
         lora_dropout=0.1
