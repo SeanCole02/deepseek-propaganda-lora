@@ -149,7 +149,8 @@ class LlamaClassifier:
 if __name__ == "__main__":
     classifier = LlamaClassifier(
         lr=1e-5,  # Higher learning rate often works better with LoRA
-        train_batch=8,
+        train_batch=2,
+        eval_batch=2,
         lora_r=4,  # Rank of LoRA decomposition
         lora_alpha=16,  # Alpha scaling factor, keep at 16
         lora_dropout=0.1
