@@ -102,11 +102,11 @@ class LlamaClassifier:
             learning_rate=self._lr,
             per_device_train_batch_size=self._train_batch,
             per_device_eval_batch_size=self._eval_batch,
-            num_train_epochs=8,
+            num_train_epochs=3,
             weight_decay=self._weight_decay,
             metric_for_best_model="f1",
             save_total_limit=2,
-            gradient_checkpointing=True, # Reduce VRAM
+            #gradient_checkpointing=True, # Reduce VRAM
             gradient_accumulation_steps=8, # 8x train batch size
             bf16=True
         )
@@ -150,7 +150,7 @@ class LlamaClassifier:
 
 if __name__ == "__main__":
     classifier = LlamaClassifier(
-        lr=1e-5,  # Higher learning rate often works better with LoRA
+        lr=5e-5,  # Higher learning rate often works better with LoRA
         train_batch=1,
         eval_batch=1,
         lora_r=4,  # Rank of LoRA decomposition
